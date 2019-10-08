@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 기타 분포 | 기초통계 개념정리</title>
+  <meta name="description" content="This is a basic statistics book written by JSKIM." />
+  <meta name="generator" content="bookdown 0.14.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 기타 분포 | 기초통계 개념정리" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a basic statistics book written by JSKIM." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 기타 분포 | 기초통계 개념정리" />
+  
+  <meta name="twitter:description" content="This is a basic statistics book written by JSKIM." />
+  
+
+<meta name="author" content="김진섭" />
+
+
+<meta name="date" content="2019-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="정규분포normal-distribution.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Basic statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html"><i class="fa fa-check"></i><b>2</b> 확률(Probability) vs 가능도(Likelihood)</a><ul>
+<li class="chapter" data-level="2.1" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#시작하면서"><i class="fa fa-check"></i><b>2.1</b> 시작하면서</a></li>
+<li class="chapter" data-level="2.2" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#확률"><i class="fa fa-check"></i><b>2.2</b> 확률</a></li>
+<li class="chapter" data-level="2.3" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#연속사건의-확률"><i class="fa fa-check"></i><b>2.3</b> 연속사건의 확률</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#특정-사건의-확률은-모두-0"><i class="fa fa-check"></i><b>2.3.1</b> 특정 사건의 확률은 모두 0</a></li>
+<li class="chapter" data-level="2.3.2" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#특정-구간에-속할-확률-확률밀도함수probability-density-function-pdf"><i class="fa fa-check"></i><b>2.3.2</b> 특정 구간에 속할 확률: 확률밀도함수(Probability Density Function, PDF)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#특정-사건이-일어날-가능성을-비교할-수는-없을까-가능도likelihood"><i class="fa fa-check"></i><b>2.4</b> 특정 사건이 일어날 가능성을 비교할 수는 없을까?: 가능도(Likelihood)</a></li>
+<li class="chapter" data-level="2.5" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#사건이-여러-번-일어날-경우에서의-가능도"><i class="fa fa-check"></i><b>2.5</b> 사건이 여러 번 일어날 경우에서의 가능도</a></li>
+<li class="chapter" data-level="2.6" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#진실을-찾는-방법-최대가능도-추정량maximum-likelihood-estimator-mle"><i class="fa fa-check"></i><b>2.6</b> 진실을 찾는 방법: 최대가능도 추정량(Maximum Likelihood Estimator, MLE)</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#예1-모양이-일그러진-동전"><i class="fa fa-check"></i><b>2.6.1</b> 예1: 모양이 일그러진 동전</a></li>
+<li class="chapter" data-level="2.6.2" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#예2-나의-실제-키"><i class="fa fa-check"></i><b>2.6.2</b> 예2: 나의 실제 키</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="확률probability-vs-가능도likelihood.html"><a href="확률probability-vs-가능도likelihood.html#마치며"><i class="fa fa-check"></i><b>2.7</b> 마치며</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html"><i class="fa fa-check"></i><b>3</b> 정규분포(Normal distribution)</a><ul>
+<li class="chapter" data-level="3.1" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#시작하면서-1"><i class="fa fa-check"></i><b>3.1</b> 시작하면서</a></li>
+<li class="chapter" data-level="3.2" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#이항분포의-근사"><i class="fa fa-check"></i><b>3.2</b> 이항분포의 근사</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#동전과-주사위를-무한히-던지면"><i class="fa fa-check"></i><b>3.2.1</b> 동전과 주사위를 무한히 던지면?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#일반화"><i class="fa fa-check"></i><b>3.2.2</b> 일반화</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#오차의-법칙-오차라면-마땅히-가지고-있어야-할-조건들."><i class="fa fa-check"></i><b>3.3</b> 오차의 법칙: 오차라면 마땅히 가지고 있어야 할 조건들.</a></li>
+<li class="chapter" data-level="3.4" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#중심극한정리-무조건-정규분포-ok"><i class="fa fa-check"></i><b>3.4</b> 중심극한정리: 무조건 정규분포 OK?</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#찌그러진-동전-던지기."><i class="fa fa-check"></i><b>3.4.1</b> 찌그러진 동전 던지기.</a></li>
+<li class="chapter" data-level="3.4.2" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#주사위를-던져서-나오는-숫자의-평균값."><i class="fa fa-check"></i><b>3.4.2</b> 주사위를 던져서 나오는 숫자의 평균값.</a></li>
+<li class="chapter" data-level="3.4.3" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#표준정규분포에서-숫자-뽑기"><i class="fa fa-check"></i><b>3.4.3</b> 표준정규분포에서 숫자 뽑기</a></li>
+<li class="chapter" data-level="3.4.4" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#카이제곱분포chi-square-distribution"><i class="fa fa-check"></i><b>3.4.4</b> 카이제곱분포(Chi-square distribution)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#중심극한정리-고찰"><i class="fa fa-check"></i><b>3.5</b> 중심극한정리 고찰</a></li>
+<li class="chapter" data-level="3.6" data-path="정규분포normal-distribution.html"><a href="정규분포normal-distribution.html#마치며-1"><i class="fa fa-check"></i><b>3.6</b> 마치며</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="기타-분포.html"><a href="기타-분포.html"><i class="fa fa-check"></i><b>4</b> 기타 분포</a><ul>
+<li class="chapter" data-level="4.1" data-path="기타-분포.html"><a href="기타-분포.html#시작하면서-2"><i class="fa fa-check"></i><b>4.1</b> 시작하면서</a></li>
+<li class="chapter" data-level="4.2" data-path="기타-분포.html"><a href="기타-분포.html#카이제곱분포chi-square-distribution-1"><i class="fa fa-check"></i><b>4.2</b> 카이제곱분포(Chi-square distribution)</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="기타-분포.html"><a href="기타-분포.html#자유도degree-of-freedom란"><i class="fa fa-check"></i><b>4.2.1</b> 자유도(Degree of Freedom)란?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="기타-분포.html"><a href="기타-분포.html#카이제곱-분포의-활용-2times2-테이블."><i class="fa fa-check"></i><b>4.2.2</b> 카이제곱 분포의 활용: <span class="math inline">\(2\times2\)</span> 테이블.</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="기타-분포.html"><a href="기타-분포.html#t-분포"><i class="fa fa-check"></i><b>4.3</b> <span class="math inline">\(t\)</span>-분포</a></li>
+<li class="chapter" data-level="4.4" data-path="기타-분포.html"><a href="기타-분포.html#f-분포"><i class="fa fa-check"></i><b>4.4</b> <span class="math inline">\(F\)</span>-분포</a></li>
+<li class="chapter" data-level="4.5" data-path="기타-분포.html"><a href="기타-분포.html#마치며-2"><i class="fa fa-check"></i><b>4.5</b> 마치며</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">기초통계 개념정리</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="기타-분포" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> 기타 분포</h1>
+<div id="시작하면서-2" class="section level2">
+<h2><span class="header-section-number">4.1</span> 시작하면서</h2>
+<p>이번 단원에서는 정규분포 말고 다른 분포들에 대해 알아보겠다. 그렇다고 모든 분포를 다 다루지는 않고 실제 통계분석에서 주로 활용되는 분포인 <strong>카이제곱, <span class="math inline">\(t\)</span>, <span class="math inline">\(F\)</span></strong>의 3가지 분포만 살펴보겠다. 각 분포의 유래와 기본적인 성질을 알고 실제 통계분석에서 어떻게 활용되는지 미리 대략적인 감을 잡는 정도가 목표이니, 편안한 마음으로 한번 훑어보면서 자유도의 개념 정도만 챙기고 넘어가도록 하자.</p>
+</div>
+<div id="카이제곱분포chi-square-distribution-1" class="section level2">
+<h2><span class="header-section-number">4.2</span> 카이제곱분포(Chi-square distribution)</h2>
+<p>앞단원에서도 잠깐 언급한 카이제곱분포에서 카이(<span class="math inline">\(\chi\)</span>)는 <span class="math inline">\(X\)</span>의 그리스 알파벳 버전으로 평균 0, 분산 1인 표준정규분포를 의미한다. 따라서 카이제곱이라는 이름에는 표준정규분포를 제곱한다는 의미가 내포되어 있고, 실제로 <strong>자유도 <span class="math inline">\(v\)</span></strong>인 카이제곱분포를 <span class="math inline">\(X^2\)</span>을 <span class="math inline">\(v\)</span>개 합한 것의 분포로 정의한다. 더 정확히 말하자면 <span class="math inline">\(X_1, X_2,\cdots, X_v\)</span>가 표준정규분포를 따를 때</p>
+<p><span class="math display">\[Q = X_1^2+X_2^2+\cdots+X_v^2\]</span> 의 분포는 자유도가 <span class="math inline">\(v\)</span>인 카이제곱 분포를 따른다고 정의하고 <span class="math inline">\(Q\sim\chi^2(v)\)</span>로 표현한다. 아래 그림를 통해 대략적인 모양을 확인해 보자.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="Basic-stat_files/figure-html/unnamed-chunk-16-1.png" alt="카이제곱분포" width="864" />
+<p class="caption">
+Figure 4.1: 카이제곱분포
+</p>
+</div>
+<p><span class="math inline">\(Q\)</span>값은 제곱들의 합이므로 0 이상만 가질 수 있다는 것을 알 수 있으며 <span class="math inline">\(\chi^2(v)\)</span>의 평균은 <span class="math inline">\(v\)</span>, 분산은 <span class="math inline">\(2v\)</span>임이 알려져 있다.</p>
+<div id="자유도degree-of-freedom란" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> 자유도(Degree of Freedom)란?</h3>
+<p>미지수의 갯수</p>
+</div>
+<div id="카이제곱-분포의-활용-2times2-테이블." class="section level3">
+<h3><span class="header-section-number">4.2.2</span> 카이제곱 분포의 활용: <span class="math inline">\(2\times2\)</span> 테이블.</h3>
+</div>
+</div>
+<div id="t-분포" class="section level2">
+<h2><span class="header-section-number">4.3</span> <span class="math inline">\(t\)</span>-분포</h2>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="Basic-stat_files/figure-html/unnamed-chunk-17-1.png" alt="$t$-분포" width="864" />
+<p class="caption">
+Figure 4.2: <span class="math inline">\(t\)</span>-분포
+</p>
+</div>
+</div>
+<div id="f-분포" class="section level2">
+<h2><span class="header-section-number">4.4</span> <span class="math inline">\(F\)</span>-분포</h2>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="Basic-stat_files/figure-html/unnamed-chunk-18-1.png" alt="$F$-분포" width="864" />
+<p class="caption">
+Figure 4.3: <span class="math inline">\(F\)</span>-분포
+</p>
+</div>
+</div>
+<div id="마치며-2" class="section level2">
+<h2><span class="header-section-number">4.5</span> 마치며</h2>
+<p>이번 단원에서는 정규분포의 당위성을 뒷받침하는 3가지의 근거를 다양한 예시와 실험을 통해 알아보았으며, 그 중 중심극한정리에 대해서는 따로 그 의미를 되새겨보았다. 다음 단원에서는 정규분포 외에 알아야 하는 확률분포를 딱 3개만 더 알아보도록 하겠으며, 그 후에는 본격적으로 통계분석의 세계로 들어가 보도록 하겠다.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="정규분포normal-distribution.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Basic-stat.pdf", "Basic-stat.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
