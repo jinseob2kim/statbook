@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-#[ -z "${GITHUB_PAT}" ] && exit 0
-#[ "${TRAVIS_BRANCH}" != "master" ] && exit 0
+[ -z "${GITHUB_PAT}" ] && exit 0
+[ "${TRAVIS_BRANCH}" != "master" ] && exit 0
 
 git config --global user.email "jinseob2kim@gmail.com"
 git config --global user.name "Jinseob Kim"
