@@ -1,0 +1,5 @@
+book_filename: "Basic-stat.Rmd"
+before_chapter_script: "option_fig.r"
+language:
+  ui:
+    chapter_name: "Chapter "

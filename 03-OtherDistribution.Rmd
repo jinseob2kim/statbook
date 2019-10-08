@@ -1,0 +1,81 @@
+# 기타 분포
+
+## 시작하면서
+이번 단원에서는 정규분포 말고 다른 분포들에 대해 알아보겠다. 그렇다고 모든 분포를 다 다루지는 않고 실제 통계분석에서 주로 활용되는 분포인 **카이제곱, $t$, $F$**의  3가지 분포만 살펴보겠다. 각 분포의 유래와 기본적인 성질을 알고 실제 통계분석에서 어떻게 활용되는지 미리 대략적인 감을 잡는 정도가 목표이니, 편안한 마음으로 한번 훑어보면서 자유도의 개념 정도만 챙기고 넘어가도록 하자. 
+
+
+
+## 카이제곱분포(Chi-square distribution)
+앞단원에서도 잠깐 언급한 카이제곱분포에서 카이($\chi$)는 $X$의 그리스 알파벳 버전으로 평균 0, 분산 1인 표준정규분포를 의미한다. 따라서 카이제곱이라는 이름에는 표준정규분포를 제곱한다는 의미가 내포되어 있고, 실제로 **자유도 $v$**인 카이제곱분포를 $X^2$을 $v$개 합한 것의 분포로 정의한다. 더 정확히 말하자면 $X_1, X_2,\cdots, X_v$가 표준정규분포를 따를 때 
+  
+$$Q = X_1^2+X_2^2+\cdots+X_v^2$$ 
+의 분포는 자유도가 $v$인 카이제곱 분포를 따른다고 정의하고 $Q\sim\chi^2(v)$로 표현한다. 아래 그림를 통해 대략적인 모양을 확인해 보자.  
+
+```{r,fig.cap="카이제곱분포",fig.width=9,fig.height=6,warning=F,echo=F}
+library(ggplot2);library(gridExtra);library(reshape2)
+
+
+z=seq(0.5, 8,0.01)
+chdata=data.frame(z, df1=dchisq(z,df=1),df2=dchisq(z,df=2),df3=dchisq(z,df=3),df4=dchisq(z,df=4),df5=dchisq(z,df=5),df6=dchisq(z,df=6),df7=dchisq(z,df=7))
+chmelt=melt(chdata,id="z",variable.name="DF")
+
+sstr=strsplit(as.character(chmelt$DF),"df")
+chmelt$DF=as.numeric(sapply(1:nrow(chmelt),function(x){sstr[[x]][2]}))
+
+
+g1=ggplot(chmelt,aes(z,value,colour=factor(DF)))+geom_line(size=1.2)+xlab(expression(italic(Q)))+ylab("Density")+ggtitle("카이제곱분포의 확률분포")
+g1+labs(colour = "자유도")+scale_color_manual(values=c("black","grey50","red","blue","green","orange","purple"))
+```
+
+$Q$값은 제곱들의 합이므로 0 이상만 가질 수 있다는 것을 알 수 있으며 $\chi^2(v)$의 평균은 $v$, 분산은 $2v$임이 알려져 있다. 
+
+
+### 자유도(Degree of Freedom)란?
+미지수의 갯수
+
+
+### 카이제곱 분포의 활용: $2\times2$ 테이블.
+
+
+
+## $t$-분포
+```{r,fig.cap="$t$-분포",fig.width=9,fig.height=6,warning=F,echo=F}
+z=seq(-4, 4,0.01)
+chdata=data.frame(z, df1=dt(z,df=1),df2=dt(z,df=2),df5=dt(z,df=5),df10=dt(z,df=10),df30=dt(z,df=30),df100=dnorm(z))
+chmelt=melt(chdata,id="z",variable.name="DF")
+
+sstr=strsplit(as.character(chmelt$DF),"df")
+chmelt$DF=as.numeric(sapply(1:nrow(chmelt),function(x){sstr[[x]][2]}))
+
+legend_label=c("1","2","5","10","30","표준정규분포")
+g1=ggplot(chmelt,aes(z,value,colour=factor(DF,labels=legend_label)))+geom_line(size=1.2)+xlab(expression(italic(t)))+ylab("Density")+ggtitle(expression(paste(italic(t),"-분포의 확률분포",sep="")))
+g1+labs(colour = "자유도")+scale_color_manual(values=c("black","grey50","red","blue","green","orange"))
+```
+
+
+
+
+
+
+## $F$-분포 
+```{r,fig.cap="$F$-분포",fig.width=9,fig.height=6,warning=F,echo=F}
+z=seq(0, 5,0.01)
+chdata=data.frame(z, df1_1=df(z,df1=1,df2=1),df2_1=df(z,df1=2,df2=1),df5_2=df(z,df1=5,df2=2),df10_1=df(z,df1=10,df2=1),df100_100=df(z,df1=100,df2=100))
+chmelt=melt(chdata,id="z",variable.name="DF")
+
+sstr=strsplit(as.character(chmelt$DF),"df")
+sstr2=sapply(1:nrow(chmelt),function(x){sstr[[x]][2]})
+chmelt$DF=factor(sstr2,levels=c("1_1","2_1","5_2","10_1","100_100"))
+
+legend_label=c("(1,1)","(2,1)","(5,2)","(10,1)","(100,100)")
+g1=ggplot(chmelt,aes(z,value,colour=factor(DF,labels=legend_label)))+geom_line(size=1.2)+xlab(expression(italic(F)))+ylab("Density")+ggtitle(expression(paste(italic(F),"-분포의 확률분포",sep="")))
+g1+labs(colour = "자유도(df1, df2)")+theme(legend.text=element_text(c("1","2","3","4","5")))+scale_color_manual(values=c("black","grey50","red","blue","green"))
+```
+
+
+
+
+## 마치며
+이번 단원에서는 정규분포의 당위성을 뒷받침하는 3가지의 근거를 다양한 예시와 실험을 통해 알아보았으며, 그 중 중심극한정리에 대해서는 따로 그 의미를 되새겨보았다. 다음 단원에서는 정규분포 외에 알아야 하는 확률분포를 딱 3개만 더 알아보도록 하겠으며, 그 후에는 본격적으로 통계분석의 세계로 들어가 보도록 하겠다.  
+
+
