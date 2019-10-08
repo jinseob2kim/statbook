@@ -1,5 +1,4 @@
 #!/bin/sh
-
 set -e
 
 [ -z "${GITHUB_PAT}" ] && exit 0
