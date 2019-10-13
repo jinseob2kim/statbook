@@ -2,9 +2,6 @@ language: r
 cache: packages
 pandoc_version: 1.19.2.1
 
-r_packages:
-    - extrafont
-    
 before_script:
   - sudo apt-get install fonts-unfonts-core fonts-unfonts-extra fonts-baekmuk fonts-nanum fonts-nanum-coding fonts-nanum-extra
   - chmod +x ./_build.sh
