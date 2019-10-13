@@ -7,7 +7,6 @@ r_packages:
     
 before_script:
   - sudo apt-get install fonts-unfonts-core fonts-unfonts-extra fonts-baekmuk fonts-nanum fonts-nanum-coding fonts-nanum-extra
-  - Rscript -e "extrafont::font_import()"
   - chmod +x ./_build.sh
   - chmod +x ./_deploy.sh
 
