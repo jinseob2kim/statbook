@@ -69,7 +69,8 @@ chmelt$DF=factor(sstr2,levels=c("1_1","2_1","5_2","10_1","100_100"))
 
 legend_label=c("(1,1)","(2,1)","(5,2)","(10,1)","(100,100)")
 g1=ggplot(chmelt,aes(z,value,colour=factor(DF,labels=legend_label)))+geom_line(size=1.2)+xlab(expression(italic(F)))+ylab("Density")+ggtitle(expression(paste(italic(F),"-분포의 확률분포",sep="")))
-g1+labs(colour = "자유도(df1, df2)")+theme(legend.text=element_text(c("1","2","3","4","5")))+scale_color_manual(values=c("black","grey50","red","blue","green"))
+#g1+labs(colour = "자유도(df1, df2)")+theme(legend.text=element_text(c("1","2","3","4","5")))+scale_color_manual(values=c("black","grey50","red","blue","green"))
+g1+labs(colour = "자유도(df1, df2)")+scale_color_manual(values=c("black","grey50","red","blue","green"))
 ```
 
 
